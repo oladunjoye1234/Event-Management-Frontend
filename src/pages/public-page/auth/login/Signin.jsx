@@ -27,7 +27,7 @@ const signIn = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const success = await signin(formData);
+    const success = await signin(formData) ;
     if (success) {
       navigate("/"); // Redirect to homepage on successful login
     }
