@@ -5,7 +5,6 @@ import { useAuthContext } from "../../../contexts/AuthContext";
 import { Navigate } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
-import Spinner from "../../../components/spinner";
 
 const EventDetails = () => {
     const { user } = useAuthContext();
@@ -37,7 +36,11 @@ const EventDetails = () => {
       fetchEvent();
     }, [id]);
   
-    if (loading) return <Spinner />;
+    if (loading) return <>
+    <div className="flex justify-center items-center mt-20">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-indigo-500"></div>
+        </div>
+    </>;
   
     if (!event) {
       return <p className="text-center text-red-500 mt-10">Event not found.</p>;
