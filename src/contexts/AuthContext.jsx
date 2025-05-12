@@ -18,7 +18,7 @@ const AuthProvider = ({ children }) => {
   const signin = async (formData) => {
     setSigningIn(true);
     try {
-      const response = await fetch(`${baseUrl}/login`, {
+      const response = await fetch(`${baseUrl}/auth/login`, {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {
