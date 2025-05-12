@@ -190,7 +190,7 @@ const Dashboard = () => {
         const url =
           user.role === "organizer"
             ? `${baseUrl}/events/organizer`
-            : "http://localhost:3000/api/v1/booking/booked";
+            : `${baseUrl}/booking/booked`;
         const res = await fetch(url, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

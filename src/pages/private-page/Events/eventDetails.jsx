@@ -51,7 +51,7 @@ const EventDetails = () => {
         try {
           const res = await axios.post(
             // `http://local/bookings/event/${event._id}`,
-            `http://localhost:3000/api/v1/booking/event/${event._id}`,
+            `${baseUrl}/booking/event/${event._id}`,
             {},
             {
               headers: {
