@@ -1,11 +1,11 @@
-import React, { use } from 'react'
-import {useState, useContext} from "react"
+
+import {useState} from "react"
 import { useAuthContext } from "../../../../contexts/AuthContext"
 // import { Toaster } from "sonner"
 import { Link,  useNavigate, } from 'react-router-dom'
 const signIn = () => {
   const {signin, signingIn, user } = useAuthContext();
-  const navigate = useNavigate();
+
   const [formData, setFormData]= useState({
     email: "",
     password: "",
