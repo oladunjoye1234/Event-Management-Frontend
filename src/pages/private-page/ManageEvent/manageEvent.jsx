@@ -2,6 +2,7 @@
 import React, { useEffect, useState} from "react";
 import axios from "axios";
 import { toast } from "sonner";
+import { motion } from "framer-motion";
 import { useAuthContext } from "../../../contexts/AuthContext";
 import { Navigate } from "react-router-dom";
 import EditEventModal  from "./editEventModal";
