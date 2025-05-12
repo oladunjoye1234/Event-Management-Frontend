@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import { useAuthContext } from "../../../contexts/AuthContext";
 import { Navigate } from "react-router-dom";
 import EditEventModal  from "./editEventModal";
-import Spinner from "../../../components/spinner";
+
 import { AnimatePresence } from "framer-motion"
 
 const ManageEvents = () => {
@@ -65,11 +65,14 @@ const ManageEvents = () => {
     };
   
     if (loading) {
-      return (
-        <div className="flex justify-center items-center min-h-screen">
-          <Spinner />
+      return  <>
+    <div className="flex justify-center items-center mt-20">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-indigo-500"></div>
         </div>
-      );
+    </>;
+
+        
+      ;
     }
 
     if (!user) {
