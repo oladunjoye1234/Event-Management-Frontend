@@ -6,6 +6,7 @@ import { Navigate } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
 
+
 const EventDetails = () => {
     const { user } = useAuthContext();
     const { id } = useParams();
@@ -42,9 +43,9 @@ const EventDetails = () => {
         </div>
     </>;
   
-    if (!event) {
-      return <p className="text-center text-red-500 mt-10">Event not found.</p>;
-    }
+    // if (!event) {
+    //   return <p className="text-center text-red-500 mt-10">Event not found.</p>;
+    // }
     const handleBookEvent = async () => {
         setLoading(true);
         try {

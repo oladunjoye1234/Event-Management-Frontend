@@ -13,13 +13,12 @@ const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null);
   const [signingUp, setSigningUp] = useState(false);
   const [signingIn, setSigningIn] = useState(false);
-
-const baseUrl = import.meta.env.VITE_BACKEND_URL;
+ const baseUrl = import.meta.env.VITE_BACKEND_URL;
 
   const signin = async (formData) => {
     setSigningIn(true);
     try {
-      const response = await fetch(`${baseUrl}`, {
+      const response = await fetch(`${baseUrl}/login`, {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {
@@ -53,7 +52,7 @@ const baseUrl = import.meta.env.VITE_BACKEND_URL;
   const signup = async (formData) => {
     setSigningUp(true);
     try {
-      const response = await fetch(`http://localhost:3000/api/v1/auth/signup`, {
+      const response = await fetch(`${baseUrl}auth/signup`, {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {
