@@ -59,13 +59,13 @@ const Events = () => {
   if (!user) {
       return <Navigate to="/"/>;
     }
-  if (user.role == "attendee") {
-    return (
-      <div className="text-center text-red-500 font-semibold text-xl mt-10">
-        You are not authorized to view this page.
-      </div>
-    );
-  }
+  // if (user.role == "attendee") {
+  //   return (
+  //     <div className="text-center text-red-500 font-semibold text-xl mt-10">
+  //       You are not authorized to view this page.
+  //     </div>
+  //   );
+  // }
   return (
     <div className="min-h-screen bg-gray-100 py-10 px-4 md:px-10">
       <div className="max-w-6xl mx-auto">
