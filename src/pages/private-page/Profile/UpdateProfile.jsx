@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
 import { toast } from 'sonner'
-import { useAuthContext } from '../../../contexts/AuthContext';
 
 const UpdateProfile = ({user, onClose, onUpdate}) => {
     if (!user) return null; // Ensure user is defined

@@ -6,7 +6,7 @@ import { useAuthContext } from "../../../contexts/AuthContext";
 import { Navigate } from "react-router-dom";
 import EditEventModal  from "./editEventModal";
 import Spinner from "../../../components/spinner";
-import { motion, AnimatePresence } from "framer-motion"
+import { AnimatePresence } from "framer-motion"
 
 const ManageEvents = () => {
     const { user } = useAuthContext();

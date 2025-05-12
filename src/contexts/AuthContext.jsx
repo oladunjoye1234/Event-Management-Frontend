@@ -13,7 +13,6 @@ const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null);
   const [signingUp, setSigningUp] = useState(false);
   const [signingIn, setSigningIn] = useState(false);
-  const [loadingAuth, setLoadingAuth] = useState(false);
 
 const baseUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -125,7 +124,7 @@ const baseUrl = import.meta.env.VITE_BACKEND_URL;
     token,
     signingUp,
     signingIn,
-    loadingAuth,
+    
     setUser,
     signin,
     logout,

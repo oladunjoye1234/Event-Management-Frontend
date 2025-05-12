@@ -1,6 +1,6 @@
 // components/common/ConfirmModal.jsx
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 const backdrop = {
   hidden: { opacity: 0 },

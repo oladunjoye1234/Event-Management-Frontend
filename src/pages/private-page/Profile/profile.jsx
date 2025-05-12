@@ -9,8 +9,6 @@ import { useEffect } from 'react';
 
 const Profile = () => {
   const { user, logout, setUser  } = useAuthContext();
-  const [showModal, setShowModal] = React.useState(false);
-  const [loading, setLoading] = React.useState(false);
   const navigate = useNavigate();
 
   const [isEditing, setIsEditing] = useState(false);

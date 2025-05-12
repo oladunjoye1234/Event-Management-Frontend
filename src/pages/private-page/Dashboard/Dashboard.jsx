@@ -9,7 +9,6 @@ import { FaSpinner } from "react-icons/fa";
 const Dashboard = () => {
   const { user } = useAuthContext();
   const [deleteType, setDeleteType] = useState("");
-  const navigate = useNavigate();
   const [events, setEvents] = useState([]);
   const [bookedEvents, setBookedEvents] = useState([]);
   const [loading, setLoading] = useState(true);
