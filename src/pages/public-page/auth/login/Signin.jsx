@@ -3,9 +3,11 @@ import {useState} from "react"
 import { useAuthContext } from "../../../../contexts/AuthContext"
 // import { Toaster } from "sonner"
 import { Link, } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 const signIn = () => {
   const {signin, signingIn, user } = useAuthContext();
+  const Navigate = useNavigate(); 
 
   const [formData, setFormData]= useState({
     email: "",
@@ -29,7 +31,7 @@ const signIn = () => {
     e.preventDefault();
     const success = await signin(formData) ;
     if (success) {
-      navigate("/"); // Redirect to homepage on successful login
+      Navigate("/"); // Redirect to homepage on successful login
     }
     
   };
