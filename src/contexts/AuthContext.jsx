@@ -52,7 +52,7 @@ const AuthProvider = ({ children }) => {
   const signup = async (formData) => {
     setSigningUp(true);
     try {
-      const response = await fetch(`${baseUrl}auth/signup`, {
+      const response = await fetch(`${baseUrl}/auth/signup`, {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {
@@ -97,7 +97,7 @@ const AuthProvider = ({ children }) => {
     if (!token) return;
     try {
       const response = await fetch(
-        `http://localhost:3000/api/v1/auth/profile`,
+        `${baseUrl}/auth/profile`,
         {
           method: "GET",
           headers: {
@@ -123,7 +123,6 @@ const AuthProvider = ({ children }) => {
     token,
     signingUp,
     signingIn,
-    
     setUser,
     signin,
     logout,
