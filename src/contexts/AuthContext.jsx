@@ -15,10 +15,12 @@ const AuthProvider = ({ children }) => {
   const [signingIn, setSigningIn] = useState(false);
   const [loadingAuth, setLoadingAuth] = useState(false);
 
+const baseUrl = import.meta.env.VITE_BACKEND_URL;
+
   const signin = async (formData) => {
     setSigningIn(true);
     try {
-      const response = await fetch(`http://localhost:3000/api/v1/auth/login`, {
+      const response = await fetch(`${baseUrl}`, {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {
