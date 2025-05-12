@@ -12,12 +12,13 @@ const Events = () => {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const eventsPerPage = 6;
+  const baseUrl = import.meta.env.VITE_BACKEND_URL;
 
   // Fetch events
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/v1/events/event");
+        const res = await fetch(`${baseUrl}/events/event`);
         const data = await res.json();
 
         if (data.status === "success") {
@@ -58,7 +59,7 @@ const Events = () => {
   if (!user) {
       return <Navigate to="/"/>;
     }
-  if (user.role !== "attendee") {
+  if (user.role == "attendee") {
     return (
       <div className="text-center text-red-500 font-semibold text-xl mt-10">
         You are not authorized to view this page.

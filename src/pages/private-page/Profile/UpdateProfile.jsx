@@ -10,7 +10,7 @@ const UpdateProfile = ({user, onClose, onUpdate}) => {
       });
     
       const [loading, setLoading] = useState(false);
-    
+      const baseUrl = import.meta.env.VITE_BACKEND_URL;
       const handleChange = (e) => {
         setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
         };
@@ -20,7 +20,7 @@ const UpdateProfile = ({user, onClose, onUpdate}) => {
         e.preventDefault();
         setLoading(true);
         try {
-          const response = await fetch(`http://localhost:3000/api/v1/profile`, {
+          const response = await fetch(`${baseUrl}/profile`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",

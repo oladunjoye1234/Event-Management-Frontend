@@ -11,12 +11,13 @@ const ManageBookings = () => {
   const [loading, setLoading] = useState(false);
   const [cancelingId, setCancelingId] = useState(null);
   const [confirmModal, setConfirmModal] = useState({ open: false, bookingId: null });
+  const baseUrl = import.meta.env.VITE_BACKEND_URL;
 
   const fetchBookings = async () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:3000/api/v1/booking/booked", {
+      const res = await axios.get(`${baseUrl}/booking/booked`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setBookings(res.data.bookings || []);
@@ -41,7 +42,7 @@ const ManageBookings = () => {
     setCancelingId(bookingId);
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:3000/api/v1/booking/event/${bookingId}`, {
+      await axios.delete(`${baseUrl}/booking/event/${bookingId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setBookings((prev) => prev.filter((b) => b.bookingId !== bookingId));

@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 const Profile = () => {
   const { user, logout, setUser  } = useAuthContext();
   const navigate = useNavigate();
-
+  const baseUrl = import.meta.env.VITE_BACKEND_URL;
   const [isEditing, setIsEditing] = useState(false);
   useEffect(() => {
     if(!user) {
@@ -28,7 +28,7 @@ const Profile = () => {
   const handleUpdate = async (updatedUser) => {
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:3000/api/v1/profile`, {
+      const response = await fetch(`${baseUrl}/profile`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

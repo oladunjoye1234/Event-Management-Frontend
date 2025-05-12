@@ -12,7 +12,7 @@ const EditEventModal = ({ event, onClose, fetchEventsAgain }) => {
         time: event.time,
         description: event.description,
       });
-      
+  const baseUrl = import.meta.env.VITE_BACKEND_URL;
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -27,7 +27,7 @@ const EditEventModal = ({ event, onClose, fetchEventsAgain }) => {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `http://localhost:3000/api/v1/events/event/${event._id}`,
+        `${baseUrl}/events/event/${event._id}`,
         formData,
         {
           headers: { Authorization: `Bearer ${token}` },

@@ -13,12 +13,12 @@ const EventDetails = () => {
     const [event, setEvent] = useState(null);
     const [loading, setLoading] = useState(true);
     const [token] = useState(localStorage.getItem("token"));
-    
+    const baseUrl = import.meta.env.VITE_BACKEND_URL;
 
     useEffect(() => {
       const fetchEvent = async () => {
         try {
-          const res = await fetch(`http://localhost:3000/api/v1/events/event/${id}`);
+          const res = await fetch(`${baseUrl}/events/event/${id}`);
           const data = await res.json();
   
           if (data.status === "success") {
@@ -43,9 +43,9 @@ const EventDetails = () => {
         </div>
     </>;
   
-    // if (!event) {
-    //   return <p className="text-center text-red-500 mt-10">Event not found.</p>;
-    // }
+    if (!event) {
+      return <p className="text-center text-red-500 mt-10">Event not found.</p>;
+    }
     const handleBookEvent = async () => {
         setLoading(true);
         try {

@@ -14,13 +14,13 @@ const ManageEvents = () => {
     const [loading, setLoading] = useState(false);
     const [selectedEvent, setSelectedEvent] = useState(null); // for editing
     const [editModalOpen, setEditModalOpen] = useState(false);
-  
+    const baseUrl = import.meta.env.VITE_BACKEND_URL;
     const fetchEvents = async () => {
       try {
         setLoading(true);
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          "http://localhost:3000/api/v1/events/organizer",
+          `${baseUrl}/events/organizer`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -43,7 +43,7 @@ const ManageEvents = () => {
         !confirm("Are you sure you want to delete this event?")) return;
       try {
         const token = localStorage.getItem("token");
-        await axios.delete(`http://localhost:3000/api/v1/events/event/${id}`, {
+        await axios.delete(`${baseUrl}/events/event/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         toast.success("Event deleted successfully!");
