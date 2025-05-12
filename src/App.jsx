@@ -8,7 +8,7 @@ import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
 import Event from "./pages/private-page/Events/events";
 import EventDetails from "./pages/private-page/Events/eventDetails";
-import CreateEvent from "./pages/private-page/Createevent/createEvent";
+import CreateEvent from "./pages/private-page/CreateEvent/createEvent";
 import ManageEvent from "./pages/private-page/ManageEvent/manageEvent";
 import ManageTickets from "./pages/private-page/ManageTickets/tickets";
 import PageNotFound from "./components/common/PageNotFound";
