@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 const CreateEvent = () => {
   const { user } = useAuthContext();
   const { token } = useAuthContext();
+  const baseUrl = import.meta.env.VITE_BACKEND_URL;
   const [formData, setFormData] = useState({ 
     title: "",
     description: "",
@@ -54,7 +55,7 @@ const CreateEvent = () => {
     payload.append("image", imageFile);
 
     try {
-      const res = await fetch("http://localhost:3000/api/v1/events/AllEvents", {
+      const res = await fetch(`${baseUrl}/events/AllEvents`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

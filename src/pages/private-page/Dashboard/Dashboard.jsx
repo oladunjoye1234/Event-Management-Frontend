@@ -20,6 +20,7 @@ const Dashboard = () => {
   const [eventImage, setEventImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [creating, setCreating] = useState(false);
+  const baseUrl = import.meta.env.VITE_BACKEND_URL;
   const [newEventData, setNewEventData] = useState({
     image: null,
     title: "",
@@ -47,7 +48,7 @@ const Dashboard = () => {
   const handleProfileUpdate = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:3000/api/v1/profile`, {
+      const response = await fetch(`${baseUrl}/profile`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -71,7 +72,7 @@ const Dashboard = () => {
   const handleDeleteEvent = async (id) => {
     if (!id) return;
     try {
-      const res = await fetch(`http://localhost:3000/api/v1/events/event/${id}`, {
+      const res = await fetch(`${baseUrl}/events/event/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -97,7 +98,7 @@ const Dashboard = () => {
     if (!id) return;
     setCancelingId(id);
     try {
-      const res = await fetch(`http://localhost:3000/api/v1/booking/event/${id}`, {
+      const res = await fetch(`${baseUrl}/booking/event/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -147,7 +148,7 @@ const Dashboard = () => {
     formData.append("time", newEventData.time);
 
     try {
-      const response = await fetch("http://localhost:3000/api/v1/events/AllEvents", {
+      const response = await fetch(`${baseUrl}/events/AllEvents`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -188,7 +189,7 @@ const Dashboard = () => {
         setLoading(true);
         const url =
           user.role === "organizer"
-            ? "http://localhost:3000/api/v1/events/organizer"
+            ? `${baseUrl}/events/organizer`
             : "http://localhost:3000/api/v1/booking/booked";
         const res = await fetch(url, {
           headers: {
