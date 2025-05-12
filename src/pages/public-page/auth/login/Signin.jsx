@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const signIn = () => {
   const {signin, signingIn, user } = useAuthContext();
-  const Navigate = useNavigate(); 
+  const navigate = useNavigate(); 
 
   const [formData, setFormData]= useState({
     email: "",
@@ -31,7 +31,7 @@ const signIn = () => {
     e.preventDefault();
     const success = await signin(formData) ;
     if (success) {
-      Navigate("/"); // Redirect to homepage on successful login
+      navigate("/"); // Redirect to homepage on successful login
     }
     
   };
