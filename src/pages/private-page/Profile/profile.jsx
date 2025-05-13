@@ -11,6 +11,8 @@ const Profile = () => {
   const { user, logout, setUser  } = useAuthContext();
   const navigate = useNavigate();
   const baseUrl = import.meta.env.VITE_BACKEND_URL;
+  const [loading, setLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   useEffect(() => {
     if(!user) {
