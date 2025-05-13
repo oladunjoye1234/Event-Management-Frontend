@@ -121,7 +121,7 @@ const Home = () => {
           >
             <img
               src="/images/join_meetup.webp"
-              alt="Join Meetnow"
+              alt="Join Eventnow"
               className="w-full max-w-md"
             />
           </motion.div>

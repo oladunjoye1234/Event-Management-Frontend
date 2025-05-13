@@ -1,4 +1,4 @@
-import { FaFacebookF, FaTwitter, FaYoutube, FaInstagram, FaTiktok } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaYoutube, FaInstagram, FaTiktok, FaGithub, FaWhatsapp, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -47,13 +47,19 @@ const Footer = () => {
               <FaTwitter className="text-base" />
             </a>
             <a href="#" className="text-gray-500 hover:text-white">
-              <FaYoutube className="text-base" />
+              <FaWhatsapp className="text-base" />
             </a>
             <a href="#" className="text-gray-500 hover:text-white">
               <FaInstagram className="text-base" />
             </a>
             <a href="#" className="text-gray-500 hover:text-white">
               <FaTiktok className="text-base" />
+            </a>
+            <a href="#" className="text-gray-500 hover:text-white">
+              <FaLinkedin className="text-base" />
+            </a>
+            <a href="https://github.com/oladunjoye1234" className="text-gray-500 hover:text-white">
+              <FaGithub className="text-base" />
             </a>
           </div>
 

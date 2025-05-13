@@ -3,7 +3,7 @@ import { useAuthContext } from "../../../contexts/AuthContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 import ConfirmModal from "../../../components/confirmModal";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { FaSpinner } from "react-icons/fa";
 
 const Dashboard = () => {
@@ -15,6 +15,7 @@ const Dashboard = () => {
   const [editingProfile, setEditingProfile] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [eventToDelete, setEventToDelete] = useState(null);
+  const [eventDeletingId, setEventDeletingId] = useState(null); // New state
   const [cancelingId, setCancelingId] = useState(null);
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [eventImage, setEventImage] = useState(null);
@@ -71,6 +72,7 @@ const Dashboard = () => {
 
   const handleDeleteEvent = async (id) => {
     if (!id) return;
+    setEventDeletingId(id);
     try {
       const res = await fetch(`${baseUrl}/events/event/${id}`, {
         method: "DELETE",
@@ -89,6 +91,7 @@ const Dashboard = () => {
       console.error(err);
       toast.error("Error deleting event");
     } finally {
+      setEventDeletingId(null);
       setConfirmOpen(false);
       setEventToDelete(null);
     }
@@ -488,10 +491,10 @@ const Dashboard = () => {
                     </p>
                     <button
                       onClick={() => handleDeleteClick(event._id, "event")}
-                      className="mt-4 px-3 py-2 bg-red-600 text-white rounded hover:bg-red-700 text-sm"
-                      disabled={loading}
+                      className="mt-4 px-3 py-2 bg-red-600 text-white rounded hover:bg-red-700 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                      disabled={eventDeletingId === event._id}
                     >
-                      {loading ? (
+                      {eventDeletingId === event._id ? (
                         <span className="flex items-center">
                           <FaSpinner className="animate-spin h-4 w-4 mr-2 text-white" />
                           Processing...
