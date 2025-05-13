@@ -43,13 +43,13 @@ const Footer = () => {
             <a href="#" className="text-gray-500 hover:text-white">
               <FaFacebookF className="text-base" />
             </a>
-            <a href="#" className="text-gray-500 hover:text-white">
+            <a href="https://x.com/olamilekan0412?s=21" className="text-gray-500 hover:text-white">
               <FaTwitter className="text-base" />
             </a>
             <a href="#" className="text-gray-500 hover:text-white">
               <FaWhatsapp className="text-base" />
             </a>
-            <a href="#" className="text-gray-500 hover:text-white">
+            <a href="https://www.instagram.com/oladunjoye_12?igsh=MTN0bGI1OGllNTNkeA%3D%3D&utm_source=qr" className="text-gray-500 hover:text-white">
               <FaInstagram className="text-base" />
             </a>
             <a href="#" className="text-gray-500 hover:text-white">
