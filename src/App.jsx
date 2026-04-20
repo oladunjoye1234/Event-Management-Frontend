@@ -12,7 +12,6 @@ import CreateEvent from "./pages/private-page/CreateEvent/createEvent";
 import ManageEvent from "./pages/private-page/ManageEvent/manageEvent";
 import ManageTickets from "./pages/private-page/ManageTickets/tickets";
 import PageNotFound from "./components/common/PageNotFound";
-// import { useAuthContext } from "../../../contexts/AuthContext";
 import Profile from "./pages/private-page/Profile/profile";
 import Dashboard from "./pages/private-page/Dashboard/Dashboard";
 
@@ -21,7 +20,6 @@ import Dashboard from "./pages/private-page/Dashboard/Dashboard";
 
 
 function App() {
-  // const { user } = useAuthContext();
   return (
     <BrowserRouter>
       <AuthProvider>
